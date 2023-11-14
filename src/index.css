@@ -1,0 +1,19 @@
+:root {
+  font-family: 'Roboto', sans-serif;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+body {
+  margin: auto;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  max-width: 400px;
+  border: 1px solid red;
+}
+
+#root{
+  width: 100%;
+}
