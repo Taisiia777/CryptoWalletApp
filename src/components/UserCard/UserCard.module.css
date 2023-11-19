@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    border: 1px solid red;
     width: 100%;
     height: 210px;
     align-items: center;
@@ -17,8 +16,30 @@
 }
 
 .userCardMoney{
-
-    font-weight: 800;
+    margin: 30px auto 10px auto;
+    font-weight: 700;
     font-size: 32px;
     z-index: 1;
+}
+
+.profitContainer{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+}
+
+.upIcon{
+    margin: auto;
+    margin-right: 5px;
+    width: 12px;
+    height: 12px;
+    background-image: url("../../assets/UpIcon.svg");
+    background-size: cover;
+}
+
+.profitText{
+    margin: 0;
+    font-size: 16px;
+    color: #55FE66;
 }

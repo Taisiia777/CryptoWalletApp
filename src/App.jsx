@@ -1,16 +1,32 @@
-import { useState } from 'react'
-import Header from "./components/header/header.jsx";
+import {useEffect, useMemo, useState} from 'react'
+import Header from "./components/Header/Header.jsx";
 import UserCard from "./components/UserCard/UserCard.jsx";
+import getInfo from "./utils/getInfo.js";
+import UserContext from "./Contexts/UserContext.js";
+import { QueryClient, QueryClientProvider } from "react-query";
+import CryptoTracker from "./components/BitcoinChart/CryptoTracker.jsx";
 
 function App() {
-  const [User, setUser] = useState({
-      name: 'Savelii777',
-      money: 1234
-  })
-  return (
+    const queryClient = new QueryClient();
+
+    const [User, setUser] = useState({})
+    useMemo(() => {
+        getInfo('http://localhost:3000/user').then((data) => setUser(data));
+    }, []);
+
+    return (
    <div>
-        <Header User={User}/>
-       <UserCard User={User}/>
+       <QueryClientProvider client={queryClient}>
+        <UserContext.Provider value={{User}}>
+            <Header/>
+            <UserCard/>
+            {/*<CryptoTracker cryptoName="bitcoin" />*/}
+            {/*<CryptoTracker cryptoName="ethereum" />*/}
+            {/*<CryptoTracker cryptoName="dogecoin" />*/}
+            {/*<CryptoTracker cryptoName="solana" />*/}
+        </UserContext.Provider>
+       </QueryClientProvider>
+
    </div>
   )
 }

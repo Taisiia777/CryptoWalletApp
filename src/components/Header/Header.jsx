@@ -1,6 +1,8 @@
-import styles from './header.module.css'
-
-export const Header = ({User}) => {
+import styles from './Header.module.css'
+import UserContext from "../../Contexts/UserContext.js";
+import {useContext} from "react";
+export const Header = () => {
+    const {User} = useContext(UserContext)
     return (
         <div className={styles.header}>
             <div className={styles.header__logo}/>

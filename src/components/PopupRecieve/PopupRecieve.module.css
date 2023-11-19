@@ -1,0 +1,35 @@
+.container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    border: 1px solid red;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    opacity: 0.5;
+}
+.formContaiter{
+    border: 1px solid red;
+    margin: 0;
+    position: fixed;
+    border-radius: 15px;
+    width: 500px;
+    height: 500px;
+    background: aliceblue;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+.formTitle{
+    margin: 30px auto auto auto;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    color: #000;
+
+}
