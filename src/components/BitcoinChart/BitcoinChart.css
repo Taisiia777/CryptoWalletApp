@@ -86,6 +86,7 @@
 
 .expanded.card {
     max-width: 800px;
+    z-index: 0;
 }
 
 .expanded .top-data {

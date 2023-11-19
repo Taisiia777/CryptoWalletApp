@@ -15,13 +15,15 @@ export const UserCard = () => {
                     negativeFormat: '($0.00)',
                 }).format(User.money)}
             </p>
-            <div className={styles.profitContainer}>
-                <div className={styles.upIcon} />
+            {User.profit > 0 && (
+                <div className={styles.profitContainer}>
+                    <div className={styles.upIcon} />
 
-                <p className={styles.profitText}>
-                    {User.profit * 100}%
-                </p>
-            </div>
+                    <p className={styles.profitText}>
+                        {User.profit * 100}%
+                    </p>
+                </div>
+            )}
             <UserCardButtonList/>
         </div>
     )

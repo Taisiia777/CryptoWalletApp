@@ -6,30 +6,26 @@ export const RecieveQrCode = ({ walletAdress }) => {
     const qrcodeRef = useRef(null);
     const [qrcodeImage, setQrcodeImage] = useState(null);
     const previousWalletAdress = useRef(null);
-
     useEffect(() => {
         if (walletAdress !== previousWalletAdress.current) {
-            const generateQRCode = async () => {
-                try {
-                    const qrcodeData = await qrcode.toDataURL(walletAdress, {
-                        errorCorrectionLevel: "H",
-                        width: 250,
-                        height: 250,
-                    });
-                    setQrcodeImage(qrcodeData);
-                } catch (error) {
-                    console.error("Error generating QR code:", error);
-                }
-            };
-
             generateQRCode();
             previousWalletAdress.current = walletAdress;
         }
-    }, [walletAdress]); // Update QR code only when walletAdress changes
+    }, [walletAdress]);
+    const generateQRCode = async () => {
+        try {
+            const qrcodeData = await qrcode.toDataURL(walletAdress, {
+                errorCorrectionLevel: "H",
+                width: 250,
+                height: 250,
+            });
+            setQrcodeImage(qrcodeData);
+        } catch (error) {
+            console.error("Error generating QR code:", error);
+        }
+    };
 
-    if (!qrcodeImage) {
-        return null;
-    }
+
 
     return (
         <div className={styles.container}>

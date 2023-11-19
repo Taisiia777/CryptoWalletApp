@@ -6,6 +6,7 @@ import convertImage from "../../assets/ConvertIcon.svg"
 import sendImage from "../../assets/SendIcon.svg"
 import recieveImage from "../../assets/RecieveIcon.svg"
 import PopupRecieve from "../PopupRecieve/PopupRecieve.jsx";
+import PopupSend from "../PopupSend/PopupSend.jsx";
 
 export const UserCardButtonList = () => {
     return (
@@ -13,9 +14,8 @@ export const UserCardButtonList = () => {
             <UserCardButton title={'Buy'} image={buyImage} />
             <UserCardButton title={'Sell'} image={sellImage} />
             <UserCardButton title={'Convert'} image={convertImage} />
-            <UserCardButton title={'Send'} image={sendImage} />
+            <UserCardButton title={'Send'} image={sendImage} renderPopup={PopupSend}/>
             <UserCardButton title={'Recieve'} image={recieveImage}   renderPopup={PopupRecieve}/>
-
         </div>
     )
 }
